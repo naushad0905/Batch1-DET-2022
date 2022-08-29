@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Batch1_DET_2022
 {
-    internal class Emp
+    public class Emp
     {
         int id;
         string name;
@@ -20,11 +20,25 @@ namespace Batch1_DET_2022
         {
             id = eid; name = ename; this.doj = doj;
         }
+        public Emp()
+        {
+            id = -1; name = "no name";
+        }
+        public Emp(int id, string name)
+        {
+            this.id = id; this.name = name;
+        }
 
         //function written inside a class is known as method
         public int GetYearsofExp()
         {
             return DateTime.Now.Year - doj.Year;
         }
+
+        public string Print()   //only virtual method can be overridden
+        {
+            return $"Emp Id={id}, Name={name}, Experience={GetYearsofExp()} Years";
+        }
+
     }
 }
